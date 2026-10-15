@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "claudePath": "__CLAUDE__",
+  "claudePrefixArgs": [],
+  "nodePath": "__NODE__",
+  "sourceDir": "__SOURCE__",
+  "defaults": { "spawn": "same-dir", "capacity": 3, "permissionMode": "default" },
+  "allowedModes": ["default", "plan", "acceptEdits", "auto"],
+  "caps": { "maxServers": 12, "maxServersPerProfile": 8, "maxCapacity": 8 },
+  "drives": { "allowRemovable": false, "allowNetwork": false },
+  "find": { "defaultDepth": 4, "maxDepth": 6, "maxDirs": 150000, "timeoutSec": 12,
+            "skipNames": ["node_modules", ".git", "bin", "obj", "dist", "build", "target", ".venv", "venv", "__pycache__", "packages", ".vs", ".idea", ".next", ".cache", "windows", "program files", "program files (x86)", "programdata", "appdata"] },
+  "supervisor": { "fastFailSec": 60, "baseDelaySec": 5, "backoffSec": [30, 60, 120, 300, 600],
+                  "giveUpAfter": 10, "authRetryMin": 30, "heartbeatSec": 30,
+                  "networkHost": "api.anthropic.com", "debugLogMaxMB": 10, "debugLogKeep": 5 },
+  "fatalPatterns": {
+    "NOT_TRUSTED": ["Workspace not trusted"],
+    "AUTH_FAIL": ["must be logged in", "requires claude.ai subscription auth", "isn't enabled for this account", "not enrolled", "could not verify the signed-in account"],
+    "POLICY_UNKNOWN": ["Couldn't verify your organization"]
+  },
+  "startWaitSec": 25,
+  "runningAfterSec": 8,
+  "startStaggerSec": 5,
+  "networkWaitStartAllSec": 120,
+  "watchdogSec": 120,
+  "logsMaxLines": 200
+}

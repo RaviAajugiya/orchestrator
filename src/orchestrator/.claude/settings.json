@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Bash(rc-spawn)",
+      "Bash(rc-spawn *)",
+      "PowerShell(rc-spawn)",
+      "PowerShell(rc-spawn *)"
+    ],
+    "deny": [
+      "Edit",
+      "Write",
+      "NotebookEdit",
+      "WebFetch",
+      "WebSearch",
+      "Bash(claude *)",
+      "PowerShell(claude *)"
+    ],
+    "disableBypassPermissionsMode": "disable"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"__RC_ROOT_FWD__/hooks/rc-orch-guard.js\""
+          }
+        ]
+      }
+    ]
+  }
+}
