@@ -22,11 +22,12 @@ claude            # sign in with your claude.ai account, accept the prompts, the
 Make sure `%USERPROFILE%\.claude-work\settings.json` exists. If it doesn't, create it with the content `{}`.
 
 ## 3. Install
-Unzip this folder somewhere permanent (for example `D:\Tools\rc-spawn`). The install points back to it.
+Clone (or unzip) this repo somewhere permanent, for example `D:\Tools\orchestrator`. The install points back to it.
 In a **normal (non-admin) PowerShell**:
 
 ```powershell
-cd D:\Tools\rc-spawn
+git clone <repo-url> D:\Tools\orchestrator
+cd D:\Tools\orchestrator
 Get-ChildItem -Recurse | Unblock-File          # files from a zip/download are blocked by Windows
 powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -HomeProfileDir "$env:USERPROFILE\.claude-work"
 ```
